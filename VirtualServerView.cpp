@@ -203,7 +203,8 @@ void CVirtualServerView::OnSrvStart()
 
 	//SOCKADDR_IN addr;
 	ZeroMemory(&saddr,sizeof(SOCKADDR_IN));
-	saddr.sin_addr.S_un.S_addr = inet_addr("127.0.0.1");
+	//saddr.sin_addr.S_un.S_addr = inet_addr("127.0.0.1");
+	saddr.sin_addr.s_addr = htonl(INADDR_ANY);
 	saddr.sin_family = AF_INET;
 	saddr.sin_port = htons(nPort);
 
